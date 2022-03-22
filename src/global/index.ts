@@ -1,12 +1,5 @@
 import { App } from 'vue'
-import { ElButton } from 'element-plus/lib/components'
-import 'element-plus/theme-chalk/base.css'
-import 'element-plus/theme-chalk/index.css' //babel.config.js中配置有问题
-
-const components = [ElButton]
-
+import registerElement from './register-element'
 export function registerApp(app: App): void {
-  for (const component of components) {
-    app.component(component.name, component)
-  }
+  registerElement(app)
 }
