@@ -57,7 +57,7 @@ class SSRequest {
     )
   }
 
-  request<T>(config: SSRequestConfig): Promise<T> {
+  request<T>(config: SSRequestConfig<T>): Promise<T> {
     return new Promise((resolve, reject) => {
       // 单个请求对请求config的处理
       if (config.interceptors?.requestInterceptor) {
@@ -87,19 +87,19 @@ class SSRequest {
     })
   }
 
-  get<T>(config: SSRequestConfig): Promise<T> {
+  get<T>(config: SSRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'GET' })
   }
 
-  post<T>(config: SSRequestConfig): Promise<T> {
+  post<T>(config: SSRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'POST' })
   }
 
-  delete<T>(config: SSRequestConfig): Promise<T> {
+  delete<T>(config: SSRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'DELETE' })
   }
 
-  patch<T>(config: SSRequestConfig): Promise<T> {
+  patch<T>(config: SSRequestConfig<T>): Promise<T> {
     return this.request<T>({ ...config, method: 'PATCH' })
   }
 }
