@@ -21,13 +21,13 @@ const router = createRouter({
   history: createWebHashHistory()
 })
 
-router.beforeEach((to) => {
-  if (to.path !== '/login') {
-    const token = localCache.getCache('token')
-    if (!token) {
-      return '/login'
-    }
-  }
-})
+// router.beforeEach((to) => {
+//   if (to.path !== '/login') {
+//     const token = localCache.getCache('token')
+//     if (!token) {
+//       return '/login'
+//     }
+//   }
+// })
 
 export default router
