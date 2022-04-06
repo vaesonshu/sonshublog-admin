@@ -10,7 +10,69 @@ const loginModule: Module<ILoginState, IRootState> = {
   state() {
     return {
       token: '',
-      userInfo: {}
+      userInfo: {},
+      userMenus: [
+        {
+          children: [
+            {
+              id: 1,
+              name: '创建用户1',
+              parentId: 2,
+              type: 2
+            },
+            {
+              id: 2,
+              name: '创建用户2',
+              parentId: 2,
+              type: 2
+            },
+            {
+              id: 3,
+              name: '创建用户3',
+              parentId: 2,
+              type: 1
+            }
+          ],
+          id: 34,
+          name: '系统总揽1',
+          type: 1
+        },
+        {
+          children: [
+            {
+              id: 7,
+              name: '创建管理1',
+              parentId: 2,
+              type: 2
+            },
+            {
+              id: 8,
+              name: '创建管理2',
+              parentId: 2,
+              type: 2
+            },
+            {
+              id: 9,
+              name: '创建管理3',
+              parentId: 2,
+              type: 2
+            }
+          ],
+          id: 35,
+          name: '系统总揽2',
+          type: 1
+        },
+        {
+          id: 36,
+          name: '系统总揽3',
+          type: 2
+        },
+        {
+          id: 37,
+          name: '系统总揽4',
+          type: 2
+        }
+      ]
     }
   },
   getters: {},

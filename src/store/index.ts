@@ -19,7 +19,7 @@ const store = createStore<IRootState>({
 export function setupStore() {
   store.dispatch('login/loadLocalLogin')
 }
-
+// 封装一个单独的useStore()并返回useVuexStore()
 export function useStore(): Store<IRootType> {
   return useVuexStore()
 }

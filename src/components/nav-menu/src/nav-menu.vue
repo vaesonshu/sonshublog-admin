@@ -1,9 +1,35 @@
 <template>
   <div class="nav-menu">
     <div class="logo">
-      <img class="img" src="~@/assets/img/logo.svg" alt="logo" />
+      <img class="img" src="~@/assets/img/shu.svg" alt="logo" />
       <span class="title">松鼠技术社区</span>
     </div>
+    <el-menu default-active="2" class="el-menu-vertical">
+      <template v-for="item in userMenus" :key="item.id">
+        <template v-if="item.type === 1">
+          <el-sub-menu :index="item.id + ''">
+            <template #title>
+              <i v-if="item.icon" :class="item.icon"></i>
+              <span>{{ item.name }}</span>
+            </template>
+            <template v-for="subitem in item.children" :key="subitem.id">
+              <el-menu-item-group>
+                <el-menu-item :index="subitem.id + ''">
+                  <i v-if="subitem.icon" :class="subitem.icon"></i>
+                  <span>{{ subitem.name }}</span>
+                </el-menu-item>
+              </el-menu-item-group>
+            </template>
+          </el-sub-menu>
+        </template>
+        <template v-else-if="item.type === 2">
+          <el-menu-item :index="item.id + ''">
+            <i v-if="item.icon" :class="item.icon"></i>
+            <span>{{ item.name }}</span>
+          </el-menu-item>
+        </template>
+      </template>
+    </el-menu>
   </div>
 </template>
 
@@ -24,7 +50,7 @@ export default defineComponent({
 <style lang="less" scoped>
 .nav-menu {
   height: 100%;
-  background-color: #001529;
+  background-color: orange;
 
   .logo {
     display: flex;
@@ -71,7 +97,7 @@ export default defineComponent({
 
   .el-menu-item.is-active {
     color: #fff !important;
-    background-color: #0a60bd !important;
+    background-color: #b28354 !important;
   }
 }
 

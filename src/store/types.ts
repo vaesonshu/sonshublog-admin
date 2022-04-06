@@ -1,4 +1,5 @@
 import { ILoginState } from './login/types'
+
 export interface IRootState {
   name: string
   age: number
